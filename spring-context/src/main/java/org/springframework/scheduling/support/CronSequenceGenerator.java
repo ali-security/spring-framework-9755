@@ -18,6 +18,7 @@ package org.springframework.scheduling.support;
 
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Locale;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -299,8 +300,8 @@ public class CronSequenceGenerator {
 	private String replaceOrdinals(String value, String commaSeparatedList) {
 		String[] list = StringUtils.commaDelimitedListToStringArray(commaSeparatedList);
 		for (int i = 0; i < list.length; i++) {
-			String item = list[i].toUpperCase();
-			value = StringUtils.replace(value.toUpperCase(), item, "" + i);
+			String item = list[i].toUpperCase(Locale.ROOT);
+			value = StringUtils.replace(value.toUpperCase(Locale.ROOT), item, "" + i);
 		}
 		return value;
 	}

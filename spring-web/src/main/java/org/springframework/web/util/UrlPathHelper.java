@@ -20,6 +20,7 @@ import java.net.URLDecoder;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Locale;
 import java.util.Properties;
 import javax.servlet.http.HttpServletRequest;
 
@@ -518,7 +519,7 @@ public class UrlPathHelper {
 	}
 
 	private String removeJsessionid(String requestUri) {
-		int startIndex = requestUri.toLowerCase().indexOf(";jsessionid=");
+		int startIndex = requestUri.toLowerCase(Locale.ROOT).indexOf(";jsessionid=");
 		if (startIndex != -1) {
 			int endIndex = requestUri.indexOf(';', startIndex + 12);
 			String start = requestUri.substring(0, startIndex);

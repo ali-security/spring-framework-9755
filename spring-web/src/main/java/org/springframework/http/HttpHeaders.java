@@ -391,7 +391,7 @@ public class HttpHeaders implements MultiValueMap<String, String>, Serializable 
 	 */
 	private static final Pattern ETAG_HEADER_VALUE_PATTERN = Pattern.compile("\\*|\\s*((W\\/)?(\"[^\"]*\"))\\s*,?");
 
-	private static final DecimalFormatSymbols DECIMAL_FORMAT_SYMBOLS = new DecimalFormatSymbols(Locale.ENGLISH);
+	private static final DecimalFormatSymbols DECIMAL_FORMAT_SYMBOLS = new DecimalFormatSymbols(Locale.ROOT);
 
 	private static final ZoneId GMT = ZoneId.of("GMT");
 
@@ -420,7 +420,7 @@ public class HttpHeaders implements MultiValueMap<String, String>, Serializable 
 	 * <p>This is the common constructor, using a case-insensitive map structure.
 	 */
 	public HttpHeaders() {
-		this(CollectionUtils.toMultiValueMap(new LinkedCaseInsensitiveMap<>(8, Locale.ENGLISH)));
+		this(CollectionUtils.toMultiValueMap(new LinkedCaseInsensitiveMap<>(8, Locale.ROOT)));
 	}
 
 	/**
@@ -647,7 +647,7 @@ public class HttpHeaders implements MultiValueMap<String, String>, Serializable 
 		StringBuilder builder = new StringBuilder();
 		for (Iterator<Charset> iterator = acceptableCharsets.iterator(); iterator.hasNext();) {
 			Charset charset = iterator.next();
-			builder.append(charset.name().toLowerCase(Locale.ENGLISH));
+			builder.append(charset.name().toLowerCase(Locale.ROOT));
 			if (iterator.hasNext()) {
 				builder.append(", ");
 			}

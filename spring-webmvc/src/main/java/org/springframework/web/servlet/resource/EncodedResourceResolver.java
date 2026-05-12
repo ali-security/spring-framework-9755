@@ -18,6 +18,7 @@ package org.springframework.web.servlet.resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
@@ -162,7 +163,7 @@ public class EncodedResourceResolver extends AbstractResourceResolver {
 	@Nullable
 	private String getAcceptEncoding(HttpServletRequest request) {
 		String header = request.getHeader(HttpHeaders.ACCEPT_ENCODING);
-		return (header != null ? header.toLowerCase() : null);
+		return (header != null ? header.toLowerCase(Locale.ROOT) : null);
 	}
 
 	private String getExtension(String coding) {

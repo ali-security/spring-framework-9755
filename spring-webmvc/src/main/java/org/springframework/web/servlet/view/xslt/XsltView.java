@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.util.Enumeration;
 import java.util.Map;
+import java.util.Locale;
 import java.util.Properties;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -414,7 +415,7 @@ public class XsltView extends AbstractUrlBasedView {
 		}
 		if (StringUtils.hasText(encoding)) {
 			// Only apply encoding if content type is specified but does not contain charset clause already.
-			if (contentType != null && !contentType.toLowerCase().contains(WebUtils.CONTENT_TYPE_CHARSET_PREFIX)) {
+			if (contentType != null && !contentType.toLowerCase(Locale.ROOT).contains(WebUtils.CONTENT_TYPE_CHARSET_PREFIX)) {
 				contentType = contentType + WebUtils.CONTENT_TYPE_CHARSET_PREFIX + encoding;
 			}
 		}

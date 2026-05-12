@@ -93,7 +93,7 @@ public class PathExtensionContentNegotiationStrategy extends AbstractMappingCont
 		}
 		String path = this.urlPathHelper.getLookupPathForRequest(request);
 		String extension = UriUtils.extractFileExtension(path);
-		return (StringUtils.hasText(extension) ? extension.toLowerCase(Locale.ENGLISH) : null);
+		return (StringUtils.hasText(extension) ? extension.toLowerCase(Locale.ROOT) : null);
 	}
 
 	/**

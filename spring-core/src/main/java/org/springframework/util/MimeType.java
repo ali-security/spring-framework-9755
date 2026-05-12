@@ -172,10 +172,10 @@ public class MimeType implements Comparable<MimeType>, Serializable {
 		Assert.hasLength(subtype, "'subtype' must not be empty");
 		checkToken(type);
 		checkToken(subtype);
-		this.type = type.toLowerCase(Locale.ENGLISH);
-		this.subtype = subtype.toLowerCase(Locale.ENGLISH);
+		this.type = type.toLowerCase(Locale.ROOT);
+		this.subtype = subtype.toLowerCase(Locale.ROOT);
 		if (!CollectionUtils.isEmpty(parameters)) {
-			Map<String, String> map = new LinkedCaseInsensitiveMap<>(parameters.size(), Locale.ENGLISH);
+			Map<String, String> map = new LinkedCaseInsensitiveMap<>(parameters.size(), Locale.ROOT);
 			parameters.forEach((attribute, value) -> {
 				checkParameters(attribute, value);
 				map.put(attribute, value);

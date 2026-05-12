@@ -160,7 +160,7 @@ public class ContentNegotiationManagerFactoryBean
 	public void setMediaTypes(Properties mediaTypes) {
 		if (!CollectionUtils.isEmpty(mediaTypes)) {
 			mediaTypes.forEach((key, value) -> {
-				String extension = ((String) key).toLowerCase(Locale.ENGLISH);
+				String extension = ((String) key).toLowerCase(Locale.ROOT);
 				MediaType mediaType = MediaType.valueOf((String) value);
 				this.mediaTypes.put(extension, mediaType);
 			});

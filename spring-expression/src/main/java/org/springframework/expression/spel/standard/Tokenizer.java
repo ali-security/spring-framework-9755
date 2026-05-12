@@ -16,6 +16,7 @@
 
 package org.springframework.expression.spel.standard;
 
+import java.util.Locale;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -455,7 +456,7 @@ class Tokenizer {
 		// Check if this is the alternative (textual) representation of an operator (see
 		// alternativeOperatorNames)
 		if ((this.pos - start) == 2 || (this.pos - start) == 3) {
-			String asString = new String(subarray).toUpperCase();
+			String asString = new String(subarray).toUpperCase(Locale.ROOT);
 			int idx = Arrays.binarySearch(ALTERNATIVE_OPERATOR_NAMES, asString);
 			if (idx >= 0) {
 				pushOneCharOrTwoCharToken(TokenKind.valueOf(asString), start, subarray);

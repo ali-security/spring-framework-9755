@@ -17,6 +17,7 @@
 package org.springframework.core.env;
 
 import java.util.Map;
+import java.util.Locale;
 
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
@@ -109,7 +110,7 @@ public class SystemEnvironmentPropertySource extends MapPropertySource {
 		if (resolvedName != null) {
 			return resolvedName;
 		}
-		String uppercasedName = name.toUpperCase();
+		String uppercasedName = name.toUpperCase(Locale.ROOT);
 		if (!name.equals(uppercasedName)) {
 			resolvedName = checkPropertyName(uppercasedName);
 			if (resolvedName != null) {

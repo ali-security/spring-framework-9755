@@ -16,6 +16,7 @@
 
 package org.springframework.expression.spel;
 
+import java.util.Locale;
 import org.springframework.core.SpringProperties;
 import org.springframework.lang.Nullable;
 
@@ -35,7 +36,7 @@ public class SpelParserConfiguration {
 	static {
 		String compilerMode = SpringProperties.getProperty("spring.expression.compiler.mode");
 		defaultCompilerMode = (compilerMode != null ?
-				SpelCompilerMode.valueOf(compilerMode.toUpperCase()) : SpelCompilerMode.OFF);
+				SpelCompilerMode.valueOf(compilerMode.toUpperCase(Locale.ROOT)) : SpelCompilerMode.OFF);
 	}
 
 

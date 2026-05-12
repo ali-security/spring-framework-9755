@@ -19,6 +19,7 @@ package org.springframework.beans.factory.config;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -274,7 +275,7 @@ public class PropertyResourceConfigurerTests {
 			}
 			catch (BeanInitializationException ex) {
 				// prove that the processor chokes on the invalid key
-				assertTrue(ex.getMessage().toLowerCase().contains("argh"));
+				assertTrue(ex.getMessage().toLowerCase(Locale.ROOT).contains("argh"));
 			}
 		}
 	}
